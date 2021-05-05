@@ -1,3 +1,5 @@
+const { MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, MOVE_UP } = require("./constants");
+
 let connection;
 
 const setupInput = (conn) => {
@@ -13,18 +15,16 @@ const setupInput = (conn) => {
 };
 
 const handleUserInput = (data) => {
-  console.log(data);
-
-  if (data === "w") {
+  if (data === MOVE_UP) {
     connection.write("Move: up");
   }
-  if (data === "a") {
+  if (data === MOVE_LEFT) {
     connection.write("Move: left");
   }
-  if (data === "s") {
+  if (data === MOVE_DOWN) {
     connection.write("Move: down");
   }
-  if (data === "d") {
+  if (data === MOVE_RIGHT) {
     connection.write("Move: right");
   }
 
