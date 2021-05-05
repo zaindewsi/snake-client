@@ -21,16 +21,17 @@ const setupInput = (conn) => {
 };
 
 const handleUserInput = (data) => {
+  connection.setEncoding("utf8");
   if (data === "\u0003") {
     process.exit();
   } else {
-    if (data === MOVE_UP) {
+    if (data === MOVE_UP || data === "\u001B\u005B\u0041") {
       connection.write("Move: up");
-    } else if (data === MOVE_LEFT) {
+    } else if (data === MOVE_LEFT || data === "\u001B\u005B\u0044") {
       connection.write("Move: left");
-    } else if (data === MOVE_DOWN) {
+    } else if (data === MOVE_DOWN || data === "\u001B\u005B\u0042") {
       connection.write("Move: down");
-    } else if (data === MOVE_RIGHT) {
+    } else if (data === MOVE_RIGHT || data === "\u001B\u005B\u0043") {
       connection.write("Move: right");
     } else {
       connection.write(`Say: ${MESSAGES[data]}`);
