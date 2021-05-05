@@ -4,9 +4,13 @@ const PORT = 50542;
 
 //MOVEMENT
 const MOVE_UP = "w";
+const MOVE_UP_ARROW = "\u001B\u005B\u0041";
 const MOVE_DOWN = "s";
+const MOVE_DOWN_ARROW = "\u001B\u005B\u0042";
 const MOVE_LEFT = "a";
+const MOVE_LEFT_ARROW = "\u001B\u005B\u0044";
 const MOVE_RIGHT = "d";
+const MOVE_RIGHT_ARROW = "\u001B\u005B\u0043";
 
 //MESSAGES
 const MESSAGES = {
@@ -22,5 +26,9 @@ module.exports = {
   MOVE_LEFT,
   MOVE_RIGHT,
   MOVE_UP,
+  MOVE_LEFT_ARROW,
+  MOVE_RIGHT_ARROW,
+  MOVE_UP_ARROW,
+  MOVE_DOWN_ARROW,
   MESSAGES,
 };

@@ -3,6 +3,10 @@ const {
   MOVE_LEFT,
   MOVE_RIGHT,
   MOVE_UP,
+  MOVE_UP_ARROW,
+  MOVE_DOWN_ARROW,
+  MOVE_LEFT_ARROW,
+  MOVE_RIGHT_ARROW,
   MESSAGES,
 } = require("./constants");
 
@@ -25,13 +29,13 @@ const handleUserInput = (data) => {
   if (data === "\u0003") {
     process.exit();
   } else {
-    if (data === MOVE_UP || data === "\u001B\u005B\u0041") {
+    if (data === MOVE_UP || data === MOVE_UP_ARROW) {
       connection.write("Move: up");
-    } else if (data === MOVE_LEFT || data === "\u001B\u005B\u0044") {
+    } else if (data === MOVE_LEFT || data === MOVE_LEFT_ARROW) {
       connection.write("Move: left");
-    } else if (data === MOVE_DOWN || data === "\u001B\u005B\u0042") {
+    } else if (data === MOVE_DOWN || data === MOVE_DOWN_ARROW) {
       connection.write("Move: down");
-    } else if (data === MOVE_RIGHT || data === "\u001B\u005B\u0043") {
+    } else if (data === MOVE_RIGHT || data === MOVE_RIGHT_ARROW) {
       connection.write("Move: right");
     } else {
       connection.write(`Say: ${MESSAGES[data]}`);
