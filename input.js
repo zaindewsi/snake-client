@@ -27,6 +27,15 @@ const handleUserInput = (data) => {
   if (data === MOVE_RIGHT) {
     connection.write("Move: right");
   }
+  if (data === "z") {
+    connection.write("Say: Zain in the house");
+  }
+  if (data === "x") {
+    connection.write("Say: What's poppin?");
+  }
+  if (data === "c") {
+    connection.write("Say: cy@ nerdz");
+  }
 
   if (data === "\u0003") {
     process.exit();
