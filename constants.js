@@ -19,6 +19,20 @@ const MESSAGES = {
   c: "cy@ nerdz",
 };
 
+//NAME
+const args = process.argv.slice(2);
+let initials = "";
+if (args.length > 1 || args[0].length > 3) {
+  console.log(
+    "Please enter initials as a single argument less than or equal to 3 characters"
+  );
+  process.exit();
+} else {
+  initials += args[0];
+}
+
+const USER = initials;
+
 module.exports = {
   IP,
   PORT,
@@ -31,4 +45,5 @@ module.exports = {
   MOVE_UP_ARROW,
   MOVE_DOWN_ARROW,
   MESSAGES,
+  USER,
 };
