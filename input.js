@@ -1,4 +1,10 @@
-const { MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, MOVE_UP } = require("./constants");
+const {
+  MOVE_DOWN,
+  MOVE_LEFT,
+  MOVE_RIGHT,
+  MOVE_UP,
+  MESSAGES,
+} = require("./constants");
 
 let connection;
 
@@ -15,30 +21,20 @@ const setupInput = (conn) => {
 };
 
 const handleUserInput = (data) => {
-  if (data === MOVE_UP) {
-    connection.write("Move: up");
-  }
-  if (data === MOVE_LEFT) {
-    connection.write("Move: left");
-  }
-  if (data === MOVE_DOWN) {
-    connection.write("Move: down");
-  }
-  if (data === MOVE_RIGHT) {
-    connection.write("Move: right");
-  }
-  if (data === "z") {
-    connection.write("Say: Zain in the house");
-  }
-  if (data === "x") {
-    connection.write("Say: What's poppin?");
-  }
-  if (data === "c") {
-    connection.write("Say: cy@ nerdz");
-  }
-
   if (data === "\u0003") {
     process.exit();
+  } else {
+    if (data === MOVE_UP) {
+      connection.write("Move: up");
+    } else if (data === MOVE_LEFT) {
+      connection.write("Move: left");
+    } else if (data === MOVE_DOWN) {
+      connection.write("Move: down");
+    } else if (data === MOVE_RIGHT) {
+      connection.write("Move: right");
+    } else {
+      connection.write(`Say: ${MESSAGES[data]}`);
+    }
   }
 };
 
